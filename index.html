@@ -3,19 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="stylesheet" href="devlop/style.css">
     <title>Weather Forecast </title>
 </head>
 <body>
     <div id="card">
-        <input id="cityName"type="text"> enter city code 
-        <button id="fetchButton"> submit </button>
-        <div id="response">
-            <div id="temp"></div>
-            <div id="clouds"></div>
-            <div id="Wind"></div>
-            <div id="precip"></div>
-        </div>
+        <div class="tile is-ancestor">
+            <div class="tile is-4 is-vertical">
+              <div class="tile">
+                <input class="input" id="userInput" type="text" placeholder="City">
+                <button id="fetchButton">Submit </button>
+              </div>
+              <div class="tile">
+                <!-- Bottom tile place to pull from storage-->
+              </div>
+            </div>
+            <div class="tile2">
+                <div id="theWeather"></div>
+                <div id="temp"></div>
+                <div id="clouds"></div>
+                <div id="wind"></div>
+                <div id="precip"></div>
+            </div>
+            </div>
+          </div>
     </div>
     <p></p>
     <script src="./devlop/js.js"></script>
