@@ -1,13 +1,22 @@
 * {
     margin: 10px;
     padding: 10px;
+    background-color: rgb(183, 255, 255);
     
 }
 
-.tile2 {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+/* .tile2 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     height: 600px;
     width: 700px;
     border: 1px;
     border-style:dotted;
-}
+    
+} */
+/* .followingDay {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 600px;
+    width: 700px;
+    border: 1px;
+    border-style:dotted;
+} */
