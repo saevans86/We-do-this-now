@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="devlop/style.css">
+    <link rel="stylesheet" href="develop/style.css">
     <title>Weather Forecast </title>
 </head>
 <body>
     <div id="card">
         <div class="tile is-ancestor">
             <div class="tile is-4 is-vertical">
-              <div class="tile">
+              <div class="tile1">
                 <input class="input" id="userInput" type="text" placeholder="City">
                 <button id="fetchButton">Submit </button>
               </div>
-              <div class="tile">
+              <div class="tile2">
                 <div id="currentDay"></div>
                 <div id="theWeather"></div> <img src="" class="icon1" id="iconRef"></div>
                 <div id="temp"></div>
@@ -25,12 +25,14 @@
             <div id="followingDay"class="tile2"><img src="" class="icon1" id="iconRefs"></div>         
             <div id="followingDay1" class="tile3"><img src="" class="icon1" id="iconRefs"></div>   
             <div id="followingDay2" class="tile4"><img src="" class="icon1" id="iconRefs"></div>              
-            <div id="followingDay3" class="tile5"><img src="" class="icon1" id="iconRefs"></div>  
-           
+            <div id="followingDay3" class="tile5"><img src="" class="icon1" id="iconRefs"></div> 
+            <div class="tile3">
+           <div class="saved" id="previousSearches"></div>
+          </div> 
     
     </div>
     
-    <script src="./devlop/js.js"></script>
+    <script src="./develop/js.js"></script>
     
 </body>
 </html>
