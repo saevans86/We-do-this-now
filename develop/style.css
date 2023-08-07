@@ -1,10 +1,10 @@
-* {
+/* * {
     margin: 10px;
     padding: 10px;
     background-color: rgb(20, 20, 20);
     color: aliceblue;
     
-}
+} */
 
 /* .day {
     margin: 1px;
@@ -21,3 +21,9 @@
     word-break: break-all;
 }
  */
+
+
+ #nextDaysIcons {
+    height: 25px;
+    width: 25px;
+ }

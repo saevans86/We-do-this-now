@@ -8,10 +8,14 @@ var windEl = document.getElementById("wind");
 var precipEl = document.getElementById("precip"); 
 var dateEl = document.getElementById("currentDayDate");
 var APIKey = "aa2557dc424b95a1c273da16128a3bad";
-var nextDay = document.getElementById("followingDay");
-var nextDay1 = document.getElementById("followingDay1");
-var nextDay2 = document.getElementById("followingDay2");
-var nextDay3 = document.getElementById("followingDay3");
+var nextDay = document.getElementById("followingDay", "nextDaysIcons0");
+var nextDay1 = document.getElementById("followingDay1", "nextDaysIcons1");
+var nextDay2 = document.getElementById("followingDay2", "nextDaysIcons2");
+var nextDay3 = document.getElementById("followingDay3", "nextDaysIcons3");
+// var nextDaysIcons0 = document.getElementById("nextDaysIcons0"); 
+// var nextDaysIcons1 = document.getElementById("nextDaysIcons1");
+// var nextDaysIcons2 = document.getElementById("nextDaysIcons2");
+// var nextDaysIcons3 = document.getElementById ("nextDaysIcons3");
 var savedWeather;
 
 
@@ -64,6 +68,8 @@ function getApi() {
       forecastEl.textContent += "Clouds: " +data.list[forecastIndex].clouds.all + "%    ";
       forecastEl.textContent += " Wind: " + data.list[forecastIndex].wind.speed + " mph    ";
       forecastEl.textContent += "Chance of rain: " + (data.list[forecastIndex].rain ? data.list[forecastIndex].rain["1h"] + " mm" : "0 mm    ");
+      forecastEl.className = "nextDaysWeather"
+      nextDaysIcon.className = "nextDaysIcons"
 
       forecastEl.append(nextDaysIcon);
       if (i === 1) {
