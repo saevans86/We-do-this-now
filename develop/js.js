@@ -8,12 +8,12 @@ var windEl = document.getElementById("wind");
 var precipEl = document.getElementById("precip"); 
 var dateEl = document.getElementById("currentDayDate");
 var APIKey = "aa2557dc424b95a1c273da16128a3bad";
-var nextDay = document.getElementById("followingDay",);
-var nextDay1 = document.getElementById("followingDay1",);
-var nextDay2 = document.getElementById("followingDay2");
-var nextDay3 = document.getElementById("followingDay3");
+var nextDay = document.getElementById("followingDay");
+var nextDay1 = document.getElementById("followingDay");
+var nextDay2 = document.getElementById("followingDay");
+var nextDay3 = document.getElementById("followingDay");
 var savedWeather;
-
+var storedButton = document.getElementById("prevSearches");
 
 
 
@@ -34,63 +34,57 @@ function getApi() {
     cloudsEl.textContent = "Clouds: " + data.list[0].clouds.all + "%    ";
     windEl.textContent = "Wind Speeds up to: " + data.list[0].wind.speed + " mph     ";
     
-    // precipEl.textContent = "Chance of rain: " + (data.list[0].rain ? data.list[0].rain["1h"] + " mm" : "0 mm    ");
-    precipEl.textContent = "Chance of rain: " + data.list[0].pop + "%" ;
+  
+    // precipEl.textContent = "Chance of rain: " + data.list[0].pop + "%" ;
     dateEl.textContent = "Weather for Today's date: " + new Date(data.list[0].dt * 1000).toLocaleDateString();
     currentDayIcon.src = weatherIconUrl;
+    
     var currentDayWeatherData = {
-      description: data.list[0].weather[0].description,
-      // icon: data.list[0].weather[0].icon,
-      // temperature: data.list[0].main.temp,
-      // clouds: data.list[0].clouds.all,
-      // wind: data.list[0].wind.speed,
-      // rain: data.list[0].rain ? data.list[0].rain["1h"] : 0,
-      date: new Date(data.list[0].dt * 1000).toLocaleDateString(),
+      responseEl: data.list[0].weather[0].description,
+      currentDayIcon: data.list[0].weather[0].icon,
+      tempEl: data.list[0].main.temp,
+      cloudsEl: data.list[0].clouds.all,
+      windEl: data.list[0].wind.speed,   
+      dateEl: new Date(data.list[0].dt * 1000).toLocaleDateString(),
     };
   
-    localStorage.setItem("currentDayWeather", JSON.stringify(currentDayWeatherData));
+    localStorage.setItem(userInputEl.value, JSON.stringify(currentDayWeatherData));
   
   
     for (let i=1; i <= 4; i++) {
       var forecastIndex  = i * 8;
-      let forecastDate = new Date(data.list[forecastIndex].dt * 1000).toLocaleDateString();
+      var forecastDate = new Date(data.list[forecastIndex].dt * 1000).toLocaleDateString();
       var iconCode = data.list[0].weather[0].icon;
 
 
       var nextDaysIcon = document.createElement("img");
       nextDaysIcon.src ="http://openweathermap.org/img/w/" + data.list[forecastIndex].weather[0].icon + ".png";
       var forecastEl = document.createElement("div");
-      // var lineBr =document.createElement("br");
-      var NextDaysWeatherArray = (
-        forecastEl.textContent = "Forecast for: " + forecastDate,
-        forecastEl.textContent  += "Weather: " + data.list[forecastIndex].weather[0].description,
-        forecastEl.textContent += "Temperature: " + data.list[forecastIndex].main.temp + "°F",
-        forecastEl.textContent += "Clouds: " +data.list[forecastIndex].clouds.all + "% ",
-        forecastEl.textContent += " Wind Speeds up to: " + data.list[forecastIndex].wind.speed + "mph",
-        forecastEl.textContent += "Chance of rain: " + data.list[forecastIndex].pop + "%"
-        )
-        
-        // NextDaysWeatherArray = document.createElement("li")
-      
-      // forecastEl.textContent = "Weather for date:  " + forecastDate + "\n";
-      // forecastEl.textContent  += "Weather: " + data.list[forecastIndex].weather[0].description + "\n";
-      // forecastEl.textContent += "Temperature: " + data.list[forecastIndex].main.temp + "°F" +"\n";
-      // forecastEl.textContent += "Clouds: " +data.list[forecastIndex].clouds.all + "% " + "\n";
-      // forecastEl.textContent += " Wind Speeds up to : " + data.list[forecastIndex].wind.speed + " mph" + "\n";
-      // forecastEl.textContent += "Chance of rain: " + data.list[forecastIndex].pop + "%" + "\n";
-      forecastEl.className = "nextDaysWeather";
-     
-      
+      var forecastDesc = document.createElement("div");
+      var forecastElDate = document.createElement("div");
+      var forecastElTem = document.createElement("div");
+      var forecastElClouds = document.createElement("div");
+      var forecastElWind = document.createElement("div");
+      var forecastElRain = document.createElement("div");
+      // forecastElDate.classList.add("box1")
+      forecastDesc.textContent  += "Weather: " + data.list[forecastIndex].weather[0].description;
+      forecastElDate.textContent = "Forecast for  :  " + forecastDate;
+      forecastElTem.textContent = "Temperature: " + data.list[forecastIndex].main.temp + "°F";
+      forecastElClouds.textContent = "Clouds: " + data.list[forecastIndex].clouds.all + "% ";
+      forecastElWind.textContent = "Wind Speeds up to: " + data.list[forecastIndex].wind.speed + "mph";
+      // forecastElRain.textContent = "Chance of rain: " + (data.list[forecastIndex].rain ? data.list[forecastIndex].rain["1h"] + " mm" : "0 mm ");
 
+
+      
       forecastEl.append(nextDaysIcon);
       if (i === 1) {
-        nextDay.append(NextDaysWeatherArray);
+        nextDay.append(forecastElDate,forecastDesc,forecastElTem,forecastElClouds,forecastElWind,forecastElRain,nextDaysIcon);
       } else if (i === 2) {
-        nextDay1.append(NextDaysWeatherArray);
+        nextDay1.append(forecastElDate,forecastDesc,forecastElTem,forecastElClouds,forecastElWind,forecastElRain,nextDaysIcon);
       } else if (i === 3) {
-        nextDay2.append(NextDaysWeatherArray);
+        nextDay2.append(forecastElDate,forecastDesc,forecastElTem,forecastElClouds,forecastElWind,forecastElRain,nextDaysIcon);
       } else if (i === 4) {
-        nextDay3.append(NextDaysWeatherArray);
+        nextDay3.append(forecastElDate,forecastDesc,forecastElTem,forecastElClouds,forecastElWind,forecastElRain,nextDaysIcon);
       }
       
     }
@@ -104,21 +98,25 @@ function getApi() {
 fetchBtnEl.addEventListener("click", getApi);
 displayStoredWeather();
 
-function displayStoredWeather() {
-  var storedWeatherData = localStorage.getItem("currentDayWeather");
+
+var storedCity = document.getElementById("storedDity")
+var storedWeather = document.getElementsByClassName("storedWeather")
+
+storedButton.addEventListener("click", displayStoredWeather)
+  function displayStoredWeather() {  
+  var storedWeatherData = localStorage.getItem("storedWeatherData");
   if (storedWeatherData) {
     var currentDayData = JSON.parse(storedWeatherData);
-    document.getElementById("storage").textContent =
+    document.getElementById("storage").textContent = ", Date: " + currentDayData.date +
     "Weather: " + currentDayData.description + ", Temperature: " + currentDayData.temperature + "°F, Clouds: "
-     + currentDayData.clouds + "%, Wind: " + currentDayData.wind + " mph, Chance of rain: " + (currentDayData.rain ? 
-      currentDayData.rain + " mm" : "0 mm") + ", Date: " + currentDayData.date;
+     + currentDayData.clouds + "%, Wind: " + currentDayData.wind + " mph";
 
    
   } else {
     return
   }
-
 }
+
 
 
 
