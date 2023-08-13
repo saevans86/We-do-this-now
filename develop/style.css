@@ -1,0 +1,46 @@
+.tile1 {
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    background-color: azure;
+    flex-direction: column;
+}
+
+.tile1-1 {
+    text-align: left; 
+    padding-left: 40px ;
+    flex-direction: column;
+}
+.tile1-2 {
+    float: left;
+    text-align: left;
+    padding-top: 40px;
+    padding-left: 40px ;
+    flex-direction: column;
+}
+
+.tile1-3 {
+    padding-top: 60px;
+    text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+    .tile1-1, .tile1, .tile1-2, .tile1-3, .tile1-4 {
+      width: 100%;
+    }
+  }
+  .nextDaysWeatherIcons {
+    height: 75px;
+    width: 75px;
+  }
+  /* .icon1
+  {
+    height: 75px;
+    width: 75px;
+  } */
+
+  .tile1-4 {
+    text-align: left; 
+    padding-left: 40px ;
+    flex-direction: column;
+  }
