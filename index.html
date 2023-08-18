@@ -1,63 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-      <link rel="stylesheet" href="develop/style.css">
-      <title>Weather Forecast </title>
-   </head>
-   <body>
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+   <link rel="stylesheet" href="develop/style.css">
+   <title>Weather Forecast </title>
+</head>
+
+<body>
+   <div class="container-fluid">
       <div class="tile1">
-         <h2>Enter any city to see the 5 day forecast</h2>
+         <h2>Enter city to see the 5 day forecast</h2>
          <input class="input" id="userInput" type="text" placeholder="City">
          <button type="button" id="fetchButton">Submit </button>
       </div>
-      </div>
-      <div class="tile1-1">
-      </div>
-      <div class="tile1-2">
-         <div class="col">
-            <br>
-            <div class="day" id="currentDayDate"></div>
+
+   </div>
+
+   <div class="tile2">
+      <div class="row">
+         <div class="col-sm" id="weHide" style="display: none;">
+            <div id="currentDayDate"></div>
             <div id="weatherDesc"></div>
             <div id="temp"></div>
             <div id="clouds"></div>
             <div id="wind"></div>
-            <div id="precip"></div>
             <img src="" class="icon1" id="iconRef">
-            <br>
+         </div>
+
+         <div class="col-sm">
+            <div id="followingDay"></div>
+         </div>
+
+         <div class="col-sm">
+            <div id="followingDay1"></div>
+
+         </div>
+         <div class="col-sm">
+            <div id="followingDay2"></div>
+         </div>
+         <div class="col-sm">
+            <div id="followingDay3"></div>
          </div>
       </div>
-      <div class="tile1-3" >
-         <div class="row">
-            <div class="col">
-               <div  id="followingDay"></div>
-               <br>
-            </div>
-            <div class="col">
-               <div  id="followingDay1"></div>
-               <br>
-            </div>
-            <div class="col">
-               <div  id="followingDay2"></div>
-            </div>
-            <div class="col">
-               <div id="followingDay3"></div>
-            </div>
-         </div>
-      </div>
+   </div>
+   
+
+   <div class="tile3">
       <div class="col">
-         <div class="tile1-4" >
-            <br>
-            <div  id="storage" style="display: none;">
+         <div class="row">            
+            <ul class="list-group.bg-transparent" style="display: none;" id="storage">
                <button id="prevSearches"> View previous searches </button>
-               <div id="storedCity" br class="storedWeather"></div>
+               <li class="list-group-item" id="storedCity"></li>
+               <br>
                <div id="noRecentSearchEl"></div>
-            </div>
+            </ul>
+
          </div>
       </div>
-      <script src="./develop/js.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-   </body>
+   </div>
+
+   <script src="./develop/js.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"></script>
+</body>
+
 </html>
